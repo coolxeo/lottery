@@ -3,6 +3,8 @@ import { useFetch } from './hooks';
 
 import logo from './logo.svg';
 import './App.css';
+import Numbers from './components/Numbers';
+import Odds from './components/Odds';
 
 function App() {
   const [ data, loading ] = useFetch("/api/drawings/euroJackpot");
@@ -13,9 +15,10 @@ function App() {
       {loading ? (
         "Loading..."
       ) : (
-        <ul>
-          {data.last.numbers.join(",")}
-        </ul>
+        <div>
+          <Numbers numbers={data.last.numbers} euroNumbers={data.last.euroNumbers} />
+          <Odds odds={data.last.odds}></Odds>
+        </div>
       )}
     </div>
   );

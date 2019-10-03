@@ -5,24 +5,7 @@ function useFetch(url) {
   const [ loading, setLoading ] = useState(true);
 
   async function fetchUrl() {
-    const res = await fetch(
-      "/api/drawings/euroJackpot",
-      {
-        "credentials":"include",
-        "headers":{
-          "accept":"application/json",
-          "accept-language":"en",
-          "cache-control":"max-age=0",
-          "sec-fetch-mode":"navigate",
-          "sec-fetch-site":"none",
-          "sec-fetch-user":"?1",
-          "upgrade-insecure-requests":"1"
-        },
-        "referrerPolicy":"no-referrer-when-downgrade",
-        "body":null,
-        "method":"GET"
-      }
-    );
+    const res = await fetch("/api/drawings/euroJackpot");
     const json = await res.json();
 
     setData(json);
